@@ -21,4 +21,18 @@ contract('Marketplace', (accounts) => {
       assert.equal(name, 'Salims Marketplace')
     })
   })
+
+  describe ('products', async () => {
+    let result, productCount
+
+    before(async () => {
+      result = await marketplace.createProduct('iPhone X', web3.utils.toWei('1', 'Ether'))
+      productCount = await marketplace.productCount()
+    })
+
+    it('creates products', async () => {
+      // SUCCESS
+      assert.equal(productCount, 1)
+    })
+  })
 })
