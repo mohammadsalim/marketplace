@@ -60,7 +60,7 @@ contract('Marketplace', ([deployer, seller, buyer]) => {
     })
 
     it('sells products', async () => {
-
+      result = await marketplace.purchaseProduct(productCount, { from: buyer, value: web3.utils.toWei('1', 'Ether')})
     })
   })
 })
