@@ -61,7 +61,7 @@ contract Marketplace {
     // Pay the seller by sending them Ether
     address(_seller).transfer(msg.value);
     // Trigger an event
-    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, false);
+    emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
   }
 
 }
