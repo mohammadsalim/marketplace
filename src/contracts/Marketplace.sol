@@ -52,7 +52,7 @@ contract Marketplace {
     // Fetch the owner
     address payable _seller = _product.owner;
     // Make sure the product has a valid id
-    require(_product.id > 0 && _product.id < productCount);
+    require(_product.id > 0 && _product.id <= productCount);
     // Require that there is enough Ether in the trasaction
     require(msg.value >= _product.price);
     // Require that the product has not been purchased already
