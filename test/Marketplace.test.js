@@ -49,5 +49,18 @@ contract('Marketplace', ([deployer, seller, buyer]) => {
       // FAILURE: Product must have a price
       await await marketplace.createProduct('iPhone X', 0, { from: seller}).should.be.rejected;
     })
+
+    it('lists products', async () => {
+      const product = await marketplace.products(productCount)
+      assert.equal(product.id.toNumber(), productCount.toNumber(), 'id is correct')
+      assert.equal(product.name, 'iPhone X', 'name is correct')
+      assert.equal(product.price, '1000000000000000000', 'price is correct')
+      assert.equal(product.owner, seller, 'owner is correct')
+      assert.equal(product.purchased, false, 'purchased is correct')
+    })
+
+    it('sells products', async () => {
+
+    })
   })
 })
