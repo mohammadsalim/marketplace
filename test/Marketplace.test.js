@@ -89,6 +89,8 @@ contract('Marketplace', ([deployer, seller, buyer]) => {
 
       assert.equal(newSellerBalance.toString(), expectedBalance.toString())
 
+      // FAILURE: 
+
     })
   })
 })
