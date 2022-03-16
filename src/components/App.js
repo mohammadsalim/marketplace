@@ -52,7 +52,11 @@ class App extends Component {
           >
             Salim's Marketplace
           </a>
-          <p>{this.state.account}</p>
+        <ul className="navbar-nav px-3">
+          <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+            <small className="text-white"><span id="account">{this.state.account}</span></small>
+          </li>
+        </ul>
         </nav>
         <div className="container-fluid mt-5">
           <div className="row">
