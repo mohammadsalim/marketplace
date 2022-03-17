@@ -32,10 +32,11 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     console.log(accounts)
     this.setState({ account: accounts[0]})
+    const networkId = await web3.eth.net.getId()
+    console.log(networkId)
     const abi = Marketplace.abi
-    const address = Marketplace.networks[5777].address
+    const address = Marketplace.networks[networkId].address
     const marketplace = web3.eth.Contract(abi, address)
-    console.log(marketplace)
   }
 
   constructor(props) {
