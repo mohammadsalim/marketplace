@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Web3 from 'web3'
 import logo from '../logo.png';
 import './App.css';
+import Marketplace from '../abis/Marketplace.json'
 
 class App extends Component {
 
@@ -31,12 +32,19 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     console.log(accounts)
     this.setState({ account: accounts[0]})
+    const abi = Marketplace.abi
+    const address = Marketplace.networks[5777].address
+    const marketplace = web3.eth.Contract(abi, address)
+    console.log(marketplace)
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      account: ''
+      account: '',
+      productCount: 0,
+      products: [],
+      loading: true
     }
   }
 
