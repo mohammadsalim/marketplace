@@ -53,6 +53,16 @@ class App extends Component {
       products: [],
       loading: true
     }
+
+    this.createProduct = this.createProduct.bind(this)
+  }
+
+  createProduct(name, price) {
+    this.state.loading({ loading: true })
+    this.state.marketplace.methods.createProduct(name, price).send({ from: this.state.account })
+    .once('receipt', (receipt) => {
+      this.setState({ loading: false })
+    })
   }
 
   render() {
