@@ -6,7 +6,12 @@ class Main extends Component {
     return (
       <div id="content">
         <h1>Add Product</h1>
-        <form>
+        <form onSubmit={(event) => {
+          event.preventDefault()
+          const name = this.productName.value
+          const price = window.web3.utils.toWei(this.productPrice.value.toString(), 'Ether')
+          this.props.createProduct(name, price)
+        }}>
           <div className="form-group mr-sm-2">
             <input
               id="productName"
